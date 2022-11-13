@@ -1,0 +1,108 @@
+<div class="container">
+
+  <h1>Campaign</h1>
+
+  <form id="formID" #addCampaign = "ngForm"  (ngSubmit)="addCampaignx(addCampaign)">
+
+    <div class="form-group">
+
+      <label for="name">Campaign Name</label><br>
+
+      <input type="text" id="name" name="name" class = "form-control" ngModel>
+
+    </div>
+
+    <pre></pre>
+
+    <div class="form-group">
+
+      <label for="keywords">Keywords</label><br>
+
+      <input type="text" id="keywords" name="keywords" class = "form-control"    ngModel>
+
+    </div>
+
+    <pre></pre>
+
+    <div class="form-group">
+
+      <label for="bidAmount">Bid Amount</label><br>
+
+      <input type="text" id="bidAmount" name="bidAmount" class = "form-control" ngModel>
+
+    </div>
+
+    <pre></pre>
+
+    <div class="form-group">
+
+      <label for="campaignFund">Campaign Fund</label><br>
+
+      <input type="text" id="campaignFund" name="campaignFund" class = "form-control" ngModel>
+
+    </div>
+
+    <pre></pre>
+
+    <div class="form-group">
+
+      <label for="status">Status</label><br>
+
+      <input type="text" id="status" name="status" class = "form-control" ngModel>
+
+    </div>
+
+    <pre></pre>
+
+    <div class="container">
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+          <label for="town">Town:</label>
+          <select formControlName="town" id="town" class="form-control">
+            <option disabled>Select Town</option>
+            <option>Choose Town</option>
+            <option *ngFor="let town of townList">{{town}}</option>
+          </select>
+          <div *ngIf="f.town.touched && f.town.invalid" class="alert alert-danger">
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+      </form>
+    </div>
+
+    <pre></pre>
+
+    <div class="form-group">
+
+      <label for="radius">Radius</label><br>
+
+      <input type="text" id="radius" name="radius" class = "form-control" ngModel>
+
+    </div>
+
+    <pre></pre>
+
+    <button form="formID" class="btn btn-primary" type="submit">Submit</button>
+
+  </form>
+
+</div>
+
+<div>
+  <div class="card mt-1" *ngFor="let c of campaign">
+    <a href="#" class="card-body flex">
+      <span class="title">{{c.name}}</span>
+      <span class="title">{{c.keywords}}</span>
+      <span class="title">{{c.bidAmount}}</span>
+      <span class="title">{{c.campaignFund}}</span>
+      <span class="title">{{c.status}}</span>
+      <span class="title">{{c.town}}</span>
+      <span class="title">{{c.radius}}</span>
+    </a>
+  </div>
+</div>
+
+
